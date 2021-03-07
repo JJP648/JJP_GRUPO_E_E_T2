@@ -1,0 +1,32 @@
+/*4. Ejecute el programa del ejercicio anterior con entradas erróneas y 
+observe los resultados. Por ejemplo, introduzca un dato de tipo carácter 
+cuando se espera un dato de tipo entero.*/
+
+#include <Arduino.h>
+
+int edad;
+char sexo[10]; // M masculino y F femenino
+float altura;
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+  Serial.println("Digite su edad: ");
+  while(!Serial.available()){} edad = Serial.parseInt();
+    Serial.println(String(edad));
+
+    Serial.println("Digite su sexo: ");
+  while(!Serial.available()){} sexo[10] = Serial.parseInt();
+    Serial.println(String(sexo[10]));
+
+    Serial.println("Digite su altura en metros: ");
+  while(!Serial.available()){} altura = Serial.parseInt();  
+    Serial.println(String(altura));
+
+Serial.println("Edad: " + String(edad));
+Serial.println("Edad: " + String(sexo));
+Serial.println("ALtura en metros: " + String(altura));
+
+}

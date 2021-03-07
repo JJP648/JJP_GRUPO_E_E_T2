@@ -1,0 +1,39 @@
+/*7.La calificación final de un estudiante es el promedio de tres notas:
+la nota de prácticas que cuenta un 30% del total, la nota teórica que cuenta un
+60% y la nota de participación que cuenta el 10% restante. Escriba un programa 
+que lea las tres notas del alumno y escriba su nota final.*/
+
+#include <Arduino.h>
+
+	float notapractica, notateorica, notaparticipacion;
+	int notaFinal;
+
+void setup() {
+ Serial.begin(9600);
+}
+
+void loop() {
+Serial.println("ingrese la nota de practica: ");
+while(!Serial.available()){} notapractica=Serial.parseInt();
+Serial.println(String(notapractica));
+
+Serial.println("Ingrese la nota teoria: ");
+while(!Serial.available()){} notateorica=Serial.parseInt();
+Serial.println(String(notateorica));
+
+Serial.println("Ingrese la nota de participacion: ");
+while(!Serial.available()){} notaparticipacion=Serial.parseInt();
+Serial.println(String(notaparticipacion));
+
+notapractica= notapractica * 0.30;
+notateorica *=0.60;
+notaparticipacion *= 0.10;
+
+notaFinal = notaparticipacion + notateorica + notapractica;
+
+Serial.println("La nota final es: "+ String(notaFinal));
+
+while(true) {}
+  
+  
+}

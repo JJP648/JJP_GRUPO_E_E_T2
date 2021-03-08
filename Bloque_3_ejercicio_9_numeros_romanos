@@ -1,0 +1,73 @@
+/*9. Cambiar un número entero con el mismo valor pero en romanos.
+	
+	M = 1000
+	D = 500
+	C = 100
+	L = 50
+	X = 10
+	V = 5
+	I = 1
+*/
+
+#include <Arduino.h>
+
+int numero,unidades,decenas,centenas,millar;
+
+void setup() {
+ Serial.begin(9600);
+}
+void loop() {
+
+Serial.println("Digite un numero: ");
+while (!Serial.available()){} numero=Serial.parseInt();
+Serial.println(String(numero));
+
+  unidades = numero%10; numero /= 10; //unidades = 2 , numero = 215
+	decenas = numero%10; numero /= 10; //decenas = 5 , numero = 21
+	centenas = numero % 10; numero /= 10; //centenas = 1 , numero = 2
+	millar = numero % 10 ; numero /= 10; //millar = 2 , numero = 0
+
+    switch(millar){
+		case 1: Serial.print("M"+String()); break;
+		case 2: Serial.print("MM"+String()); break;
+		case 3: Serial.print("MMM"+String()); break;
+	}
+
+    switch(centenas){
+		case 1: Serial.print("C"+String()); break;
+		case 2: Serial.print("CC"+String()); break;
+		case 3: Serial.print("CCC"+String()); break;
+		case 4: Serial.print("CD"+String()); break;
+		case 5: Serial.print("D"+String()); break;
+		case 6: Serial.print("DC"+String()); break;
+		case 7: Serial.print("DCC"+String()); break;
+		case 8: Serial.print("DCCC"+String()); break;
+		case 9: Serial.print("CM"+String()); break;
+	}
+	
+	  switch(decenas){
+		case 1: Serial.print("X"+String()); break;
+		case 2: Serial.print("XX"+String()); break;
+		case 3: Serial.print("XXX"+String()); break;
+		case 4: Serial.print("XL"+String()); break;
+		case 5: Serial.print("L"+String()); break;
+		case 6: Serial.print("LX"+String()); break;
+		case 7: Serial.print("LXX"+String()); break;
+		case 8: Serial.print("LXXX"+String()); break;
+		case 9: Serial.print("XC"+String()); break;
+	}
+	
+	switch(unidades){
+		case 1: Serial.print("I"+String()); break;
+		case 2: Serial.print("II"+String()); break;
+		case 3: Serial.print("III"+String()); break;
+		case 4: Serial.print("IV"+String()); break;
+		case 5: Serial.print("V"+String()); break;
+		case 6: Serial.print("VI"+String()); break;
+		case 7: Serial.print("VII"+String()); break;
+		case 8: Serial.print("VIII"+String()); break;
+		case 9: Serial.print("IX"+String()); break;
+	}
+while(true) {}
+
+}

@@ -1,0 +1,47 @@
+/*11. Hacer un programa que simule un cajero automático con un saldo inicial 
+de 1000 Dólares.*/
+
+int saldo_inicial = 1000,opc;
+	float extra,saldo = 0,retiro; 
+
+#include <Arduino.h>
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+Serial.println("Bienvenido a su cajero automatico");
+Serial.println("1. Ingresar dinero en cuenta");
+Serial.println("2. Retirar dinero de la cuenta");
+Serial.println("3. Salir");
+Serial.println("Opcion");
+while (!Serial.available()){} opc=Serial.parseInt();
+  Serial.println(String(opc));
+
+
+	switch(opc){
+		case 1: Serial.print("Cuanto dinero desea ingresar en cuenta: "+String()); break;
+				while (!Serial.available()){} extra=Serial.parseInt();
+        Serial.println(String(extra));
+        				
+				saldo = saldo_inicial + extra;
+				Serial.print("Dinero en cuenta: "+String(saldo)); break;
+
+    case 2: Serial.print("Cuanto dinero desea retirar: "+String()); break;
+				while (!Serial.available()){} retiro=Serial.parseInt();
+        Serial.println(String(retiro));
+
+			
+				if(retiro > saldo_inicial){
+					Serial.println("No cuenta con esa cantidad");
+				}
+				else{
+					saldo = saldo_inicial - retiro;
+					Serial.println("Dinero en cuenta: "+String(saldo)); break;
+				}
+		case 3: break;
+		dafault: Serial.println("Se equivoco de opcion de menu"); break;
+	}
+while (true){}
+}

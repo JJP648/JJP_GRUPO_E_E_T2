@@ -1,0 +1,43 @@
+/*Ejercicio 1: Construya una clase llamada Rectangulo que tenga los siguientes
+atributos: largo y ancho, y los siguientes metodos: perimetro() y area()*/
+
+#include <Arduino.h>
+
+class Rectangulo{
+	private: //Atributos
+		float largo,ancho;
+	public: //Metodos
+		Rectangulo(float,float); //Constructor
+		void perimetro();
+		void area();
+};
+
+Rectangulo::Rectangulo(float _largo,float _ancho){
+	largo = _largo;
+	ancho = _ancho;
+}
+
+void Rectangulo::perimetro(){
+	float _perimetro;
+		_perimetro = (2*largo) + (2*ancho);	
+	Serial.println("El perimetro es: "+ String(_perimetro));
+}
+
+void Rectangulo::area(){
+	float _area;
+		_area = largo * ancho;	
+	Serial.println("El area es: "+ String(_area));	
+}
+
+
+void setup() {
+  Serial.begin(9600);
+Rectangulo rec1(5, 2);
+rec1.area();
+rec1.perimetro();
+
+}
+
+void loop() {
+
+}

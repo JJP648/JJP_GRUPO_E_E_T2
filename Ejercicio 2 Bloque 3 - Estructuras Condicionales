@@ -1,0 +1,54 @@
+# JJP_GRUPO_E_E_T2
+EJERCICIOS
+
+/*2. Escriba un programa que lea tres números y determine cuál de ellos es 
+el mayor.*/
+
+#include <Arduino.h>
+
+int n1,n2,n3;
+
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+
+Serial.println("¿CUAL NUMERO ES MAYOR? ");  
+  Serial.println("Digite el primer numero: ");  
+  while(!Serial.available()){}
+  n1 = Serial.parseInt();
+  
+
+  Serial.println("Digite el segundo numero: ");  
+  while(!Serial.available()){}
+  n2 = Serial.parseInt();
+
+  Serial.println("Digite el tercer numero: ");  
+  while(!Serial.available()){}
+  n3 = Serial.parseInt();
+
+  Serial.println("Los numeros ingresados son: " + String(n1) + String(",")
+  +String(n2)+ String(",")+ String(n3));
+  
+
+ 
+  if((n1>n2)&&(n1>n3)){
+		Serial.println("El mayor es el primer numero ingresado: " + String (n1));
+	}
+	else if((n2>n1)&&(n2>n3)){
+		Serial.println("El mayor es el segundo numero ingresado: " + String (n2));
+	}
+	else{
+		Serial.println("El mayor es el tercer numero ingresado: " + String (n3));
+	}
+
+ 
+
+
+  }
+
+  
+
+

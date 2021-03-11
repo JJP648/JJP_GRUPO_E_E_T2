@@ -1,0 +1,36 @@
+/*Ejercicio 1: Realice un programa que pida al usuario el nombre de un fichero 
+de texto y, a continuación permita almacenar al usuario tantas frases como el
+usuario desee.*/
+
+#include <Arduino.h>
+
+char frase, frase2, frase3;
+char SI;
+char NO;
+	char nombreArchivo;
+	char rpt;
+
+void escribirFrases();
+
+void setup(){
+Serial.begin(9600);
+
+}
+void loop (){
+
+	while (Serial.available() > 0) {
+    
+     String data = Serial.readStringUntil('\n');
+     
+	Serial.println( "Digite el nombre del archivo " );
+	while(!Serial.available());
+	String nombreArchivo = Serial.readStringUntil('\n');
+	Serial.println( "El nombre del archivo es: " + String (nombreArchivo) );
+
+
+	Serial.println( "Digite una frase: " );
+	while(!Serial.available());
+	String frase = Serial.readStringUntil('\n');
+	Serial.println( "La frase es: " + String (frase));
+	}
+}

@@ -1,0 +1,32 @@
+# JJP_GRUPO_E_E_T2
+EJERCICIOS
+//1. Escribe la siguiente expresión como expresión en C++: (a/b) + 1
+
+
+#include <Arduino.h>
+
+float a,b,resultado=0;
+
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+
+  Serial.println("Digite el primer numero: ");
+  while(!Serial.available()){}
+  a = Serial.parseInt();
+  Serial.println(String(a));
+
+  Serial.println("Digite el segundo numero: ");
+  while(!Serial.available()){}
+  b = Serial.parseInt();
+  Serial.println(String(b));
+
+  resultado = (a/b)+1;
+  Serial.println("El resultado es: " + String(resultado));
+
+
+  
+  }

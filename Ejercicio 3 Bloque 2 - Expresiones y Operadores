@@ -1,0 +1,54 @@
+//# JJP_GRUPO_E_E_T2
+//EJERCICIOS
+
+//3. Escribe la siguiente expresión como expresión en C++: (a+(b/c))/(d+(e/f))
+
+#include <Arduino.h>
+
+float a,b,c,d,e,f,resultado = 0;
+
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+
+  Serial.println("Digite el primer numero: ");
+  while(!Serial.available()){}
+  a = Serial.parseInt();
+  Serial.println(String(a));
+
+  Serial.println("Digite el segundo numero: ");
+  while(!Serial.available()){}
+  b = Serial.parseInt();
+  Serial.println(String(b));
+
+  Serial.println("Digite el tercer numero: ");
+  while(!Serial.available()){}
+  c = Serial.parseInt();
+  Serial.println(String(c));
+
+  Serial.println("Digite el cuarto numero: ");
+  while(!Serial.available()){}
+  d = Serial.parseInt();
+  Serial.println(String(d));
+
+  Serial.println("Digite el quinto numero: ");
+  while(!Serial.available()){}
+  e = Serial.parseInt();
+  Serial.println(String(e));
+
+  Serial.println("Digite el sexto numero: ");
+  while(!Serial.available()){}
+  f = Serial.parseInt();
+  Serial.println(String(f));
+
+  resultado = (a+(b/c))/(d+(e/f));
+  Serial.println("operacion: " + String (a) + String ("+")+ String ("(") + String (b)+ String ("/") + String (c) + String (")")+ String ("/") + String (d) + String ("+")+ String ("(") + String (e)+ String ("/") + String (f) + String (")"));
+
+  Serial.println("El resultado es: " + String(resultado));
+
+
+  
+  }

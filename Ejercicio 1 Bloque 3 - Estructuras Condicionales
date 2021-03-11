@@ -1,0 +1,43 @@
+//# JJP_GRUPO_E_E_T2
+//EJERCICIOS
+
+/*1. Escriba un programa que lea dos números y determine cuál de ellos es 
+el mayor.*/
+
+#include <Arduino.h>
+
+int n1,n2;
+
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+
+  Serial.println("Digite el primer numero: ");  
+  while(!Serial.available()){}
+  n1 = Serial.parseInt();
+  
+
+  Serial.println("Digite el segundo numero: ");  
+  while(!Serial.available()){}
+  n2 = Serial.parseInt();
+
+  Serial.println("Los numeros ingresados son: " + String(n1) + String(" y ")
+  +String(n2));
+  
+
+ 
+  if(n1==n2){
+		Serial.println("Ambos numeros son iguales");
+	}
+	else if(n1>n2){
+		Serial.println("El mayor es: " + String (n1));
+	}
+	else{
+		Serial.println("El mayor es: " + String (n2));
+	}
+
+  
+  }

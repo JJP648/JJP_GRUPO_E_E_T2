@@ -1,0 +1,36 @@
+//# JJP_GRUPO_E_E_T2
+//EJERCICIOS
+
+/*1. Realice un programa que solicite de la entrada estándar un entero del 1 al 
+10 y muestre en la salida estándar su tabla de multiplicar.*/
+
+#include <Arduino.h>
+
+int numero;
+
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+
+Serial.println("Digite un numero del 1 al 10: "); 
+while(!Serial.available()){}
+numero = Serial.parseInt();
+
+if (numero > 0){
+	
+	Serial.println("TABLA DE MULTIPLICAR ");
+	for(int i=1;i<=10;i++){
+	Serial.println(numero * i);	
+	}
+	
+}	 
+
+	else if(numero <=0){
+		Serial.println("El numero es incorrecto, intentelo de nuevo ");
+	}
+	
+
+}

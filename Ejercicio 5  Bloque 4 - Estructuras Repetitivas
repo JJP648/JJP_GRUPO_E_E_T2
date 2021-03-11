@@ -1,0 +1,32 @@
+//# JJP_GRUPO_E_E_T2
+//EJERCICIOS
+
+/*5. Escriba un programa que lea valores enteros hasta que se introduzca un 
+valor en el rango [20-30] o se introduzca el valor 0. El programa debe 
+entregar la suma de los valores mayores a 0 introducidos.*/
+
+#include <Arduino.h>
+
+int numero, suma=0,suma_total;
+
+
+void setup() {
+  Serial.begin(9600); 
+}
+
+void loop() {
+
+Serial.println("Digite un numero "); 
+while(!Serial.available()){}
+numero = Serial.parseInt();
+Serial.println(numero);
+suma += numero;
+
+if (numero == 0){
+	suma += numero;
+	Serial.println("La suma de todos los numeros mayores a cero es: " + String (suma));
+	//suma_total = 
+}
+
+
+}
